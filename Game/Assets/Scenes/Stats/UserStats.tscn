@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Assets/Scenes/Stats/UserStats.gd" type="Script" id=1]
+[ext_resource path="res://Game/Assets/Fonts/Uni Sans Heavy Italic.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 2 )
+
+[node name="UserStats" type="VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Taps" type="Label" parent="."]
+margin_right = 147.0
+margin_bottom = 32.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "Taps:"
+
+[node name="Multiplier" type="Label" parent="."]
+margin_top = 35.0
+margin_right = 147.0
+margin_bottom = 67.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "Multiplier:"
+
+[node name="Coins" type="Label" parent="."]
+margin_top = 70.0
+margin_right = 147.0
+margin_bottom = 102.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "Coins:"
+
+[node name="Chests" type="Label" parent="."]
+margin_top = 105.0
+margin_right = 147.0
+margin_bottom = 137.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "Chests:"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Assets/Scenes/TapData/TapData.gd" type="Script" id=1]
+[ext_resource path="res://Game/Assets/Fonts/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game/Assets/Audio/Tap.wav" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 2 )
+
+[node name="TapData" type="Label"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="Tap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

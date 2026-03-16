@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game/Assets/Scenes/Code/Code.gd" type="Script" id=1]
+
+[node name="Code" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -688.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Holder" type="VBoxContainer" parent="."]
+margin_right = 256.0
+margin_bottom = 31.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="Holder"]
+margin_right = 256.0
+margin_bottom = 31.0
+
+[node name="CodeInput" type="LineEdit" parent="Holder/Buttons"]
+margin_right = 219.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+placeholder_text = "Enter Code"
+caret_blink = true
+
+[node name="Accept" type="Button" parent="Holder/Buttons"]
+margin_left = 222.0
+margin_right = 256.0
+margin_bottom = 31.0
+text = " > "
+
+[node name="Pos" type="Position2D" parent="."]
+position = Vector2( 0, 40 )
+
+[connection signal="text_changed" from="Holder/Buttons/CodeInput" to="Holder" method="_on_CodeInput_text_changed"]
+[connection signal="text_entered" from="Holder/Buttons/CodeInput" to="Holder" method="_on_CodeInput_text_entered"]
+[connection signal="pressed" from="Holder/Buttons/Accept" to="Holder" method="_on_Accept_pressed"]

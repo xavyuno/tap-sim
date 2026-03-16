@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Assets/Scenes/Settings/Settings.gd" type="Script" id=1]
+[ext_resource path="res://Game/Assets/Scenes/Settings/Tabs.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -896.0
+margin_bottom = -464.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -376.0
+margin_top = -144.0
+margin_right = 8.0
+margin_bottom = 112.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Head" type="HBoxContainer" parent="."]
+margin_left = -176.0
+margin_top = -8.0
+margin_right = 192.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Head"]
+margin_right = 319.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "Settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="Head"]
+margin_left = 322.0
+margin_right = 368.0
+margin_bottom = 32.0
+text = "  X  "
+
+[node name="Drag" type="Button" parent="."]
+margin_left = -184.0
+margin_top = -16.0
+margin_right = 144.0
+margin_bottom = 32.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="TabContainer" parent="."]
+margin_left = -176.0
+margin_top = 32.0
+margin_right = 192.0
+margin_bottom = 232.0
+tab_align = 0
+use_hidden_tabs_for_min_size = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="General" type="Control" parent="Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.75
+margin_top = 34.75
+margin_right = -3.75
+margin_bottom = -3.75
+
+[node name="Scroll" type="ScrollContainer" parent="Tabs/General"]
+margin_right = 364.0
+margin_bottom = 157.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Holder" type="VBoxContainer" parent="Tabs/General/Scroll"]
+margin_right = 355.0
+margin_bottom = 194.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="CheckButton" parent="Tabs/General/Scroll/Holder"]
+margin_right = 355.0
+margin_bottom = 31.0
+text = "Sound"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AutoSave" type="SpinBox" parent="Tabs/General/Scroll/Holder"]
+margin_top = 34.0
+margin_right = 355.0
+margin_bottom = 65.0
+min_value = 1.0
+max_value = 60.0
+value = 10.0
+prefix = "Auto Save every ["
+suffix = "] Second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Label" parent="Tabs/General/Scroll/Holder"]
+margin_top = 68.0
+margin_right = 355.0
+margin_bottom = 126.0
+text = "May effect performance
+if very low"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Taps" type="CheckButton" parent="Tabs/General/Scroll/Holder"]
+margin_top = 129.0
+margin_right = 355.0
+margin_bottom = 160.0
+text = "Show Taps"
+
+[node name="QuickSave" type="Button" parent="Tabs/General/Scroll/Holder"]
+margin_top = 163.0
+margin_right = 355.0
+margin_bottom = 194.0
+text = "Quick Save"
+
+[connection signal="pressed" from="Head/Close" to="." method="_on_Close_pressed"]
+[connection signal="button_down" from="Drag" to="." method="_on_Drag_button_down"]
+[connection signal="button_up" from="Drag" to="." method="_on_Drag_button_up"]
+[connection signal="toggled" from="Tabs/General/Scroll/Holder/Sound" to="Tabs" method="_on_Sound_toggled"]
+[connection signal="value_changed" from="Tabs/General/Scroll/Holder/AutoSave" to="Tabs" method="_on_AutoSave_value_changed"]
+[connection signal="toggled" from="Tabs/General/Scroll/Holder/Taps" to="Tabs" method="_on_Taps_toggled"]
+[connection signal="pressed" from="Tabs/General/Scroll/Holder/QuickSave" to="Tabs" method="_on_QuickSave_pressed"]

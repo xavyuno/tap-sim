@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ding.wav-8d3116f7d3c4d7b7c3c1153ca78208a3.sample"
+
+[deps]
+
+source_file="res://Game/Assets/Audio/Ding.wav"
+dest_files=[ "res://.import/Ding.wav-8d3116f7d3c4d7b7c3c1153ca78208a3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
